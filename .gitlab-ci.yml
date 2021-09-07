@@ -8,11 +8,6 @@ cache:
     - .gradle/wrapper
     - .gradle/caches
 
-package:
-  stage: build
-  script:
-    - ./gradlew assemble
-
 java:
   stage: test
   script:
