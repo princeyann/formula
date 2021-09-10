@@ -1,8 +1,9 @@
-# Gestion des notes des étudiants
+# Mandelbrot
 
-## Description du projet
+## Description du projet 
 
-Le but de ce TP est de créer des classes permettant de représenter des étudiants (classe `Student`), des notes (classe `Grade`), des résultats à une unité d'enseignement (classe `TeachingUnitResult`) et des promotions d'étudiants (classe `Cohort`).
+On va travailler sur ce TP sur l'affichage de l'[ensemble de Mandelbrot](https://en.wikipedia.org/wiki/Mandelbrot_set). Pour cela, on va utiliser un code pré-existant. 
+Le but du TP sera de corriger le code de la classe `Complex` en s'aidant de tests unitaires.
 
 ## Membres du projet
 
