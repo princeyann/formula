@@ -11,14 +11,8 @@ import java.util.function.Function;
  * It implements <code>Iterable</code>, allowing to traverse the sequence
  * with <code>for (Complex z : mySequence)</code>
  */
-public class Sequence implements Iterable<Complex> {
-
-    /* The generating function */
-    private final Function<Complex, Complex> f;
-
-    /* The initial term */
-    private final Complex u0;
-
+public record Sequence(Complex u0,
+                       Function<Complex, Complex> f) implements Iterable<Complex> {
 
     /**
      * Creates a sequence given the initial term and the function.
@@ -26,9 +20,7 @@ public class Sequence implements Iterable<Complex> {
      * @param u0 the first term of the sequence,
      * @param f  the function over complexes whose repeated application generates the sequence
      */
-    Sequence(Complex u0, Function<Complex, Complex> f) {
-        this.f = f;
-        this.u0 = u0;
+    public Sequence {
     }
 
 

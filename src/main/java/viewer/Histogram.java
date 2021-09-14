@@ -4,12 +4,9 @@ import javafx.scene.paint.Color;
 
 /**
  * Histogram of colors, used to generate a list of colors made
- * from several gradients combined together, so that the list looks smooth.
+ * from several gradients combined, so that the list looks smooth.
  */
-class Histogram {
-
-    private double[] breakpoints;
-    private Color[] colors;
+record Histogram(double[] breakpoints, Color[] colors) {
 
     /**
      * Creates a schema of colors.
@@ -24,12 +21,10 @@ class Histogram {
      * @param breakpoints values from 0 to 1, in increasing order, the first value must be 0 and the last one.
      * @param colors      colors assigned to each breakpoint.
      */
-    Histogram(double[] breakpoints, Color[] colors) {
+    Histogram {
         assert (breakpoints[0] == 0);
         assert (breakpoints[breakpoints.length - 1] == 1);
         assert (colors.length == breakpoints.length);
-        this.breakpoints = breakpoints;
-        this.colors = colors;
     }
 
 
@@ -41,10 +36,9 @@ class Histogram {
      */
     Color[] generate(int howManyPoints) {
         Color[] result = new Color[howManyPoints];
-        double length = (double) howManyPoints;
         int bpIndex = 0;
         for (int ptIndex = 0; ptIndex < howManyPoints; ptIndex++) {
-            double absolute = (double) ptIndex / length;
+            double absolute = (double) ptIndex / (double) howManyPoints;
             while (absolute > breakpoints[bpIndex + 1] && bpIndex < breakpoints.length - 1)
                 bpIndex++;
             double relative = (absolute - breakpoints[bpIndex]) / (breakpoints[bpIndex + 1] - breakpoints[bpIndex]);

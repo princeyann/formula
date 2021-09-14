@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 
 /**
  * A subpixel contributes to the color of one pixel. Pixels are usually
- * composed of several subpixels, whose colors are averaged.
+ * composed of several sub-pixels, whose colors are averaged.
  */
 
 class SubPixel {
@@ -44,7 +44,7 @@ class SubPixel {
     }
 
     /**
-     * Comparison of two subpixels by their values.
+     * Comparison of two sub-pixels by their values.
      *
      * @param pix1 first subpixel to compare
      * @param pix2 second subpixel to compare

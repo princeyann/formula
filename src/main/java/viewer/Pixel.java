@@ -7,31 +7,24 @@ import java.util.Collection;
 
 /**
  * A Pixel. Because of antialiasing, each pixel is further decomposed into
- * subpixels. Each subpixels has a color, the color of the pixel is the average
- * of the subpixels' colors.
+ * sub-pixels. Each sub-pixels has a color, the color of the pixel is the average
+ * of the sub-pixels' colors.
  */
-class Pixel {
-
-    private final int x;
-    private final int y;
-    private final Collection<SubPixel> subPixels;
+record Pixel(int x, int y, Collection<SubPixel> subPixels) {
 
     /**
-     * Creates a pixel with given coordinates and subpixels.
+     * Creates a pixel with given coordinates and sub-pixels.
      *
      * @param x         the horizontal coordinate of the pixel on the screen
      * @param y         the vertical coordinate of the pixel on the screen
-     * @param subPixels a collection of subpixels for this pixel
+     * @param subPixels a collection of sub-pixels for this pixel
      */
-    Pixel(int x, int y, Collection<SubPixel> subPixels) {
-        this.x = x;
-        this.y = y;
-        this.subPixels = subPixels;
+    Pixel {
     }
 
 
     /**
-     * @return the list of subpixels in this pixel
+     * @return the list of sub-pixels in this pixel
      */
     Collection<SubPixel> getSubPixels() {
         return subPixels;
@@ -50,7 +43,7 @@ class Pixel {
             green += col.getGreen();
             blue += col.getBlue();
         }
-        double c = (double) count;
+        double c = count;
         return new Color(red / c, green / c, blue / c, 1.);
     }
 
@@ -62,7 +55,7 @@ class Pixel {
      */
     void render(GraphicsContext context) {
         context.setFill(getAverageColor());
-        context.fillRect((double) x, (double) y, 1, 1);
+        context.fillRect(x, y, 1, 1);
     }
 
 

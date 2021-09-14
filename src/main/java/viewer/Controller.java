@@ -20,22 +20,22 @@ public class Controller implements Initializable {
 
     /**
      * Dimension of the grid used to supersample each pixel.
-     * The number of subpixels for each pixel is the square of <code>SUPERSAMPLING</code>
+     * The number of sub-pixels for each pixel is the square of <code>SUPER_SAMPLING</code>
      */
-    private static final int SUPERSAMPLING = 3;
+    private static final int SUPER_SAMPLING = 3;
 
     @FXML
     private Canvas canvas; /* The canvas to draw on */
 
-    private Camera camera = Camera.camera0; /* The view to display */
+    private final Camera camera = Camera.camera0; /* The view to display */
 
-    private Mandelbrot mandelbrot = new Mandelbrot(); /* the algorithm */
+    private final Mandelbrot mandelbrot = new Mandelbrot(); /* the algorithm */
 
 
     /* positions of colors in the histogram */
-    private double[] breakpoints = {0., 0.75, 0.85, 0.95, 0.99, 1.0};
+    private final double[] breakpoints = {0., 0.75, 0.85, 0.95, 0.99, 1.0};
     /* colors of the histogram */
-    private Color[] colors =
+    private final Color[] colors =
             {Color.gray(0.2),
                     Color.gray(0.7),
                     Color.rgb(55, 118, 145),
@@ -44,7 +44,7 @@ public class Controller implements Initializable {
                     Color.rgb(250, 250, 200)
             };
     /* algorithm to generate the distribution of colors */
-    private Histogram histogram = new Histogram(breakpoints, colors);
+    private final Histogram histogram = new Histogram(breakpoints, colors);
 
     /**
      * Method called when the graphical interface is loaded
@@ -80,7 +80,7 @@ public class Controller implements Initializable {
     /**
      * Attributes to each subpixel a color
      *
-     * @param subPixels the list of all subpixels to display
+     * @param subPixels the list of all sub-pixels to display
      */
     private void setSubPixelsColors(List<SubPixel> subPixels) {
         int nonBlackPixelsCount = countNonBlackSubPixels(subPixels);
@@ -91,7 +91,7 @@ public class Controller implements Initializable {
         for (SubPixel pix : subPixels) {
             pix.setColor(colors[pixCount]);
             pixCount++;
-            if (pixCount >= colors.length) // remaining subpixels stay black (converge).
+            if (pixCount >= colors.length) // remaining sub-pixels stay black (converge).
                 break;
         }
     }
@@ -100,8 +100,8 @@ public class Controller implements Initializable {
     /**
      * Count how many subpixel diverge.
      *
-     * @param subPixels the subpixels to display
-     * @return the number of diverging subpixels
+     * @param subPixels the sub-pixels to display
+     * @return the number of diverging sub-pixels
      */
     private int countNonBlackSubPixels(List<SubPixel> subPixels) {
         return (int)
@@ -119,7 +119,7 @@ public class Controller implements Initializable {
         int width = (int) canvas.getWidth();
         int height = (int) canvas.getHeight();
         List<SubPixel> subPixels =
-                new ArrayList<>(width * height * SUPERSAMPLING * SUPERSAMPLING);
+                new ArrayList<>(width * height * SUPER_SAMPLING * SUPER_SAMPLING);
         List<Pixel> pixels =
                 new ArrayList<>(width * height);
         for (int x = 0; x < width; x++) {
@@ -141,15 +141,15 @@ public class Controller implements Initializable {
      * @return the computed pixel with given coordinates
      */
     private Pixel preparePixel(int x, int y) {
-        double width = SUPERSAMPLING * canvas.getWidth();
-        double height = SUPERSAMPLING * canvas.getHeight();
+        double width = SUPER_SAMPLING * canvas.getWidth();
+        double height = SUPER_SAMPLING * canvas.getHeight();
         List<SubPixel> sampledSubPixels = new ArrayList<>();
-        for (int i = 0; i < SUPERSAMPLING; i++) {
-            for (int j = 0; j < SUPERSAMPLING; j++) {
+        for (int i = 0; i < SUPER_SAMPLING; i++) {
+            for (int j = 0; j < SUPER_SAMPLING; j++) {
                 Complex z =
                         camera.toComplex(
-                                ((double) (SUPERSAMPLING * x) + i) / width,
-                                1 - ((double) (SUPERSAMPLING * y) + j) / height // invert y-axis
+                                ((double) (SUPER_SAMPLING * x) + i) / width,
+                                1 - ((double) (SUPER_SAMPLING * y) + j) / height // invert y-axis
                         );
                 double divergence = mandelbrot.divergence(z);
                 sampledSubPixels.add(new SubPixel(divergence));

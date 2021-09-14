@@ -21,16 +21,16 @@ class Camera {
 
 
 
-    private Complex center; /* Center of the rectangle */
-    private Complex width; /* Vector for the width of the rectangle */
-    private Complex height; /* Vector for the height of the rectangle */
+    private final Complex center; /* Center of the rectangle */
+    private final Complex width; /* Vector for the width of the rectangle */
+    private final Complex height; /* Vector for the height of the rectangle */
 
 
     /**
      * Creates a view.
      *
-     * @param centerX     the real part of the point on which the view is centered
-     * @param centerY     the imaginary part of the point on which the view is centered
+     * @param centerX     the realPart part of the point on which the view is centered
+     * @param centerY     the imaginaryPart part of the point on which the view is centered
      * @param width       the width of the rectangle to display
      * @param aspectRatio the ratio width/height of the rectangle to display
      */
