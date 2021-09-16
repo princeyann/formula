@@ -8,7 +8,7 @@ import java.util.Iterator;
 public class GridIterator implements Iterator<Cell> {
     private int rowIndex;
     private int columnIndex;
-    private Grid grid;
+    private final Grid grid;
 
     GridIterator(Grid grid) {
         this.rowIndex = 0;
