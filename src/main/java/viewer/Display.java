@@ -19,11 +19,10 @@ public class Display implements Initializable {
     private Canvas canvas;
 
     private Image image;
-    private ImageFactory imageFactory;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        imageFactory = new BlankImageFactory();
+        ImageFactory imageFactory = new BlankImageFactory();
         // TODO : changer la fabrique d'image pour construire des images.
 
         this.image = imageFactory.makeImage();
