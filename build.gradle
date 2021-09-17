@@ -23,5 +23,5 @@ test {
 }
 
 application {
-    mainClassName = "Main"
+    mainClassName = "viewer.Main"
 }

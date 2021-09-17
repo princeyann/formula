@@ -1,8 +1,13 @@
-# Image
+# Représentation d'images en couleurs
 
 ## Description du projet
 
-Ce projet est l'occasion de travailler sur la représentation et la manipulation d'images. Ces images seront constituées de pixels caractérisés par une couleur représentant un niveau de gris.
+On va considérer quatre manières de représenter une image en couleur et donc quatre classes d'images :
+
+- `BruteRasterImage`
+- `PaletteRasterImage`
+- `SparseRasterImage`
+- `VectorImage`
 
 ## Membres du projet
 
