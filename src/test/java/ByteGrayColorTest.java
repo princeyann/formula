@@ -17,7 +17,7 @@ public class ByteGrayColorTest {
   public void testGetLuminosity_whenColorCreatedWithLuminosity(){
     ByteGrayColor color1 = new ByteGrayColor(.25);
     ByteGrayColor color2 = new ByteGrayColor(.75);
-    assertThat(color1.getLuminosity(), is(closeTo(.25,.0001)));
-    assertThat(color2.getLuminosity(), is(closeTo(.75,.0001)));
+    assertThat(color1.getLuminosity(), is(closeTo(.25,.01)));
+    assertThat(color2.getLuminosity(), is(closeTo(.75,.01)));
   }
 }
