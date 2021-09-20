@@ -1,5 +1,6 @@
 package viewer;
 
+import formula.Constant;
 import javafx.scene.chart.XYChart;
 
 import java.util.ArrayList;
@@ -18,9 +19,8 @@ class FunctionList {
     this.lowerBound = functionChart.getLowerBound();
     this.upperBound = functionChart.getUpperBound();
 
-    // TODO: add functions
-
-
+    PlottableFunction function = new PlottableFunction(new Constant(1), "f");
+    addFunctionAndItsDerivative(function);
   }
 
   void toggleFunction(PlottableFunction function) {

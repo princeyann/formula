@@ -45,6 +45,7 @@ public class MainAppController implements Initializable {
     Button button = new Button(function.toString());
     addButton(button);
     button.setOnAction(event -> toggleFunction(function));
+    toggleFunction(function);
   }
 
   private void toggleFunction(PlottableFunction function){
