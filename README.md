@@ -2,12 +2,8 @@
 
 ## Description du projet
 
-On va considérer quatre manières de représenter une image en couleur et donc quatre classes d'images :
-
-- `BruteRasterImage`
-- `PaletteRasterImage`
-- `SparseRasterImage`
-- `VectorImage`
+Le but de ce projet est d'implémenter des classes pour générer des formules mathématiques. Chaque classe correspondra
+à un type de formule (constantes, variable, addition, multiplication, ... ).
 
 ## Membres du projet
 
