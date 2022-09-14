@@ -39,7 +39,6 @@ Une classe implémentant `Formula` devra donc avoir trois fonctionnalités :
 - le calcul de sa dérivée sous la forme d'une autre formule : méthode `derivative`.
 
 
-## Membres du projet
+## Membre du projet
 
-- NOM, prénom, numéro de groupe, du premier participant
-- NOM, prénom, numéro de groupe, du deuxième participant
+- NOM, prénom
