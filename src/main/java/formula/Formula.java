@@ -1,7 +1,7 @@
 package formula;
 
 public sealed interface Formula
-  permits Constant
+  permits Constant, Variable
 {
 
   /**
