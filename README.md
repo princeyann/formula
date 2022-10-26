@@ -8,7 +8,9 @@ correspondra à un type de formule (constantes, variable, addition, multiplicati
 Chaque classe devra implémenter l'interface Formula suivante :
 
 ```java
-public interface Formula {
+public sealed interface Formula 
+  permits Constant, Variable
+{
 
   /**
    * Compute the value of the formula

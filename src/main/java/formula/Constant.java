@@ -2,13 +2,8 @@ package formula;
 
 import java.util.HashMap;
 
-public class Constant implements Formula {
+public record Constant(double value) implements Formula {
 
-  private double value;
-
-  public Constant(double value) {
-    // TODO : change the code.
-  }
 
   /**
    * Compute the value of the formula

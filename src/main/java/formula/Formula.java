@@ -1,6 +1,8 @@
 package formula;
 
-public interface Formula {
+public sealed interface Formula
+  permits Constant
+{
 
   /**
    * Compute the value of the formula
