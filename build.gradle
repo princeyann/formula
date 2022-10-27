@@ -6,6 +6,13 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_18
 targetCompatibility = JavaVersion.VERSION_18
 
+tasks.withType(JavaCompile).all {
+    options.compilerArgs += ['--enable-preview']
+}
+tasks.withType(JavaExec) {
+    jvmArgs += '--enable-preview'
+}
+
 javafx {
     version = "18.0.2"
     modules = [ 'javafx.controls', 'javafx.fxml' ]

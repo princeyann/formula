@@ -1,6 +1,7 @@
 package viewer;
 
 import formula.Constant;
+import formula.Formula;
 import javafx.scene.chart.XYChart;
 
 import java.util.ArrayList;
@@ -19,15 +20,19 @@ class FunctionList {
     this.lowerBound = functionChart.getLowerBound();
     this.upperBound = functionChart.getUpperBound();
 
-    PlottableFunction function = new PlottableFunction(new Constant(1), "f");
+    // à modifier :
+    Formula f = new Constant(1);
+    PlottableFunction function = new PlottableFunction(f, "f");
     addFunctionAndItsDerivative(function);
+
+    // fin à modifier.
   }
 
   void toggleFunction(PlottableFunction function) {
-    if (function.isPlotted()){
+    if (function.isPlotted()) {
       unplot(function);
     }
-    else{
+    else {
       plot(function);
     }
   }
@@ -37,7 +42,7 @@ class FunctionList {
     function.setPlotted(false);
   }
 
-  List<PlottableFunction> getFunctions(){
+  List<PlottableFunction> getFunctions() {
     return functions;
   }
 
@@ -49,7 +54,7 @@ class FunctionList {
   }
 
   private void addFunctionsAndTheirDerivative(Collection<PlottableFunction> functions){
-    for(PlottableFunction function: functions){
+    for(PlottableFunction function: functions) {
       addFunctionAndItsDerivative(function);
     }
   }
@@ -65,7 +70,7 @@ class FunctionList {
 
   void clear() {
     functionChart.getData().clear();
-    for(PlottableFunction function: functions){
+    for(PlottableFunction function: functions) {
       function.setPlotted(false);
     }
   }
