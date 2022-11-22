@@ -4,20 +4,20 @@ public final class Variable implements Formula {
 
   @Override
   public double eval(double xValue) {
-    // TODO
-    return 0;
+
+    return xValue;
   }
 
   @Override
   public Formula derivative() {
-    // TODO
-    return this;
+
+    return new Constant(1);
   }
 
   @Override
   public String toString() {
-    // TODO
-    return "toto";
+
+    return "x";
   }
 
   @Override

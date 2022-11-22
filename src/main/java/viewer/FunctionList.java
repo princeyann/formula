@@ -21,7 +21,7 @@ class FunctionList {
     this.upperBound = functionChart.getUpperBound();
 
     // à modifier :
-    Formula f = new Constant(1);
+    Formula f = new Constant(3);
     PlottableFunction function = new PlottableFunction(f, "f");
     addFunctionAndItsDerivative(function);
 

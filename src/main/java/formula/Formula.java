@@ -1,8 +1,7 @@
 package formula;
 
 public sealed interface Formula
-  permits Constant, Variable
-{
+        permits Addition, Constant, Variable {
 
   /**
    * Compute the value of the formula
